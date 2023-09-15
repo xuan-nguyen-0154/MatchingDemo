@@ -1,0 +1,99 @@
+.list-user {
+    background: #f8f8f8 none repeat scroll 0 0;
+    float: left;
+    overflow: hidden;
+    width: 40%;
+    border-right: 1px solid #c4c4c4;
+
+    &--title {
+        padding: 1em;
+        overflow: hidden;
+        border-bottom: 1px solid #c4c4c4;
+
+        .title-bar {
+            float: left;
+            width: 40%;
+
+            h4 {
+                color: #05728f;
+                margin: auto;
+            }
+        }
+
+        .search-bar {
+            display: inline-block;
+            text-align: right;
+            width: 60%;
+
+            input {
+                border: 1px solid #cdcdcd;
+                border-width: 0 0 1px 0;
+                width: 80%;
+                padding: 2px 0 4px 6px;
+                background: none;
+            }
+
+            .input-group-addon button {
+                background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                border: medium none;
+                padding: 0;
+                color: #707070;
+                font-size: 18px;
+            }
+        }
+    }
+
+    &--content {
+        height: 560px;
+        overflow-y: scroll;
+
+        .chat-list {
+            border-bottom: 1px solid #c4c4c4;
+            margin: 0;
+            padding: 18px 16px 10px;
+
+            &--item {
+                overflow: hidden;
+                clear: both;
+
+                .item_img {
+                    float: left;
+                    width: 11%;
+
+                    img {
+                        height: 3em;
+                    }
+                }
+
+                .item_content {
+                    float: left;
+                    padding: 0 0 0 15px;
+                    width: 88%;
+
+                    h5 {
+                        font-size: 15px;
+                        color: #464646;
+                        margin: 0 0 8px 0;
+
+                        span {
+                            font-size: 13px;
+                            float: right;
+                        }
+
+                    }
+
+                    p {
+                        font-size: 14px;
+                        color: #989898;
+                        margin: auto
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.active_chat {
+    background: #ebebeb;
+}

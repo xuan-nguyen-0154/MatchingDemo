@@ -1,0 +1,65 @@
+<div class="chat"></div>
+<div class="chat__container">
+    <h3 class="chat-title text-center">All Chats</h3>
+    <div class="chat-message">
+        <div class="chat-message__container">
+            <ListUser
+                :dataItems="items"
+                :activeItem="activeItemId"
+                @getContent="handleGetContent"
+                @searchChat="handleSearchChat"
+            />
+            <div class="list-message">
+                <div v-if="exitedID" class="list-message--content">
+<!--                    <div class="content-item" v-for="i in chosenItem.messages.data.reverse()">-->
+                    <div class="content-item" v-for="i in reverseData(chosenItem)">
+                        <div v-if="i.from.name === 'Ếch Xanh TV'" class="content-item--send">
+                            <div class="sent_msg">
+                                <p>{{ i.message }}</p>
+                                <span class="time_date">{{
+                                        formatTime(i.created_time)
+                                    }} | {{ formatDate(i.created_time) }}</span>
+                            </div>
+                        </div>
+                        <div v-else class="content-item--receive">
+                            <div class="incoming_msg_img"><img
+                                src="https://ptetutorials.com/images/user-profile.png"
+                                alt="sunil"></div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p v-if="!i.attachments && i.message !== ''">{{ i.message }}</p>
+                                    <p v-else-if="i.attachments && i.attachments.data[0].mime_type === 'image/jpeg'">
+                                        <img :src="i.attachments.data[0].image_data.preview_url"
+                                             alt="Attachment Image">
+                                    </p>
+                                    <p v-else-if="i.attachments && i.attachments.data[0].mime_type === 'application/pdf'">
+                                        <a target="_blank" :href="i.attachments.data[0].file_url">
+                                            <i>{{
+                                                    i.attachments.data[0].name ? i.attachments.data[0].name : 'Tải xuống'
+                                                }}</i>
+                                        </a>
+                                    </p>
+                                    <div v-else></div>
+                                    <span class="time_date">{{
+                                            formatTime(i.created_time)
+                                        }} | {{ formatDate(i.created_time) }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-if="exitedID" class="list-message--search">
+                    <div class="search-item">
+                        <input
+                            v-model="chatText"
+                            v-on:keyup.enter="submitChat()"
+                            class="input-chat write_msg"
+                            type="text"
+                            placeholder="Type a message"/>
+                    </div>
+                </div>
+                <div v-else></div>
+            </div>
+        </div>
+    </div>
+</div>

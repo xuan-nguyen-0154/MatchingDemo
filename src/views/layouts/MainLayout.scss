@@ -1,0 +1,23 @@
+.main-layout {
+    &__container {
+        .leftBar {
+            &-sidebar {
+
+            }
+        }
+        .rightBar {
+            &--navbar {
+
+            }
+            &--header {
+
+            }
+            &--content {
+
+            }
+            &--footer {
+
+            }
+        }
+    }
+}

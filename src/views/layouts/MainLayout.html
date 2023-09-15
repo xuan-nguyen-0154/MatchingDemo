@@ -1,0 +1,23 @@
+<div class="main-layout">
+    <div class="main-layout__container">
+        <div class="leftBar">
+            <div class="leftBar-sidebar">
+                <sidebar/>
+            </div>
+        </div>
+        <div class="rightBar relative md:ml-64 bg-blueGray-100">
+            <div class="rightBar--navbar">
+                <Navbar/>
+            </div>
+            <div class="rightBar--header">
+                <Header/>
+            </div>
+            <div class="rightBar--content px-4 md:px-10 mx-auto w-full -m-24">
+                <RouterView/>
+            </div>
+            <div class="rightBar--footer">
+                <Footer/>
+            </div>
+        </div>
+    </div>
+</div>
